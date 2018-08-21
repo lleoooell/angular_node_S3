@@ -19,6 +19,9 @@ app.use('/css', express.static('./client/css'));
 app.get('/', function (req, res) {
    res.sendFile(__dirname + '/client/index.html')
 });
+app.get('/card.html', function (req, res) {
+   res.sendFile(__dirname + '/client/card.html')
+});
 
 app.get('/liste', function (req, res) {
    res.json(toReturn);
