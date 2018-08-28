@@ -1,0 +1,311 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"va",
+				"varToExport"
+			],
+			[
+				"flex",
+				"flex-direction"
+			],
+			[
+				"mari",
+				"margin-right"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"spa",
+				"spanBottom"
+			],
+			[
+				"span",
+				"spanType"
+			],
+			[
+				"sp",
+				"spanNum"
+			],
+			[
+				"tex-a",
+				"text-anchor"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "data/data.js",
+			"settings":
+			{
+				"buffer_size": 6011,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "var express = require('express');\nvar app = express();\nvar listeEleves = require('./data/data');\n\n// console.log('hello ' + JSON.stringify(listeEleves));\n\nvar toReturn  = [{\n\t\"firstname\" : 'leo',\n\t\"lastname\" : 'casagrande',\n\t\"skills\" : 'javascript'\n\n},{\n\t\"firstname\" : 'jc',\n\t\"lastname\" : 'baudier',\n\t\"skills\" : 'php'\n\n}];\n\n// configurer le server nodejs, app.use, je déclare mes fichiers statiques\napp.use('/js', express.static('./client/js'));\napp.use('/css', express.static('./client/css'));\n\n// une modif\n\napp.get('/', function (req, res) {\n   res.sendFile(__dirname + '/client/index.html');\n});\n\n\napp.get('/card.html', function (req, res) {\n   res.sendFile(__dirname + '/client/card.html');\n});\n\napp.get('/liste', function (req, res) {\n   res.json(toReturn);\n});\n\napp.get('/export', function (req, res) {\n   res.json(listeEleves.listeEleves);\n});\n\n\napp.listen(9999, function () {\n\t  console.log('serveur lancé');\n});\n\n\n\n",
+			"file": "index.js",
+			"file_size": 889,
+			"file_write_time": 131794988320000000,
+			"settings":
+			{
+				"buffer_size": 925,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"JA",
+				"Javascript Beautify"
+			]
+		],
+		"width": 484.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/leocasagrande/Documents/DEV/IFA/S3/nodeTP1",
+		"/Users/leocasagrande/Documents/DEV/IFA/S3/nodeTP1/data"
+	],
+	"file_history":
+	[
+		"/Users/leocasagrande/Library/Application Support/Sublime Text 3/Packages/User/SVN.errors.log",
+		"/Applications/MAMP/htdocs/IFAS3TP/js/profil.js",
+		"/Applications/MAMP/htdocs/IFAS3TP/js/annuaire.js",
+		"/Applications/MAMP/htdocs/IFAS3TP/style.css",
+		"/Applications/MAMP/htdocs/IFAS3TP/index.html"
+	],
+	"find":
+	{
+		"height": 53.0
+	},
+	"find_in_files":
+	{
+		"height": 125.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "data/data.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6011,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5967,
+								5967
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								495,
+								399
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 212.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 41.0
+	},
+	"input":
+	{
+		"height": 53.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "pokemonnode.sublime-project",
+	"replace":
+	{
+		"height": 78.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"index.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 269.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 254.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
