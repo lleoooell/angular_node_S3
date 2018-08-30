@@ -1,8 +1,9 @@
 var monClic = function() {
     console.log('je clic sur le bouton');
     
-    var monCommentaire = document.getElementById("com").value;
-    
+    var input = document.getElementById("com");
+    var monCommentaire = input.value;
+
     console.log(monCommentaire);
 
     var monComm = {};
@@ -21,6 +22,7 @@ var monClic = function() {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
             // Request finished. Do processing here.
             console.log("la requête est bien passée");
+            input.value = ""; 
         }
     };
 
