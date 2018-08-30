@@ -1,10 +1,23 @@
 var express = require('express');
 var listeEleves = require('./data/data');
 var bodyParser = require('body-parser');
+var mongoose = require("mongoose");
+var Eleves = require('./models/eleves.model');
 
 
 var app = express();
 
+mongoose.connect('mongodb://localhost/ifas3');
+
+
+
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    // we're connected!
+   console.log("db connected");
+});
 
 // console.log('hello ' + JSON.stringify(listeEleves));
 
@@ -65,7 +78,27 @@ app.get('/api/liste', function (req, res) {
 });
 
 app.get('/api/eleves', function (req, res) {
-   res.json(listeEleves.listeEleves);
+   // res.json(listeEleves.listeEleves);
+   Eleves.find({},function(err,eleves){
+   		if(err){
+   			console.log(err);
+   		}else{
+   			console.log(eleves);
+   			res.json(eleves);
+   		}
+   });
+});
+
+app.get('/api/eleves/:ideleve', function (req, res) {
+   console.log(req.params);
+   Eleves.findOne({"_id" : req.params.ideleve},function(err,eleve){
+   		if(err){
+   			console.log(err);
+   		}else{
+   			console.log(eleve);
+   			res.json(eleve);
+   		}
+   });
 });
 
 
