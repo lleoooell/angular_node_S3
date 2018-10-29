@@ -35,8 +35,9 @@ var toReturn  = [{
 
 // app.use == configuration du server
 // je déclare mes fichiers statiques
-app.use('/js', express.static('./client/js'));
+app.use('/app', express.static('./client/app'));
 app.use('/css', express.static('./client/css'));
+app.use('/bower_components', express.static('./client/bower_components'));
 // je configure mon body parser :
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -51,17 +52,18 @@ app.get('/', function (req, res) {
    res.sendFile(__dirname + '/client/index.html');
 });
 
-app.get('/card.html', function (req, res) {
-   res.sendFile(__dirname + '/client/card.html');
-});
+// app.get('/card.html', function (req, res) {
+//    res.sendFile(__dirname + '/client/card.html');
+// });
 
-app.get('/eleves', function (req, res) {
-   res.sendFile(__dirname + '/client/eleves.html');
-});
+// app.get('/eleves', function (req, res) {
+//    res.sendFile(__dirname + '/client/eleves.html');
+// });
 
-app.get('/login', function (req, res) {
-   res.sendFile(__dirname + '/client/login.html');
-});
+// app.get('/login', function (req, res) {
+//    res.sendFile(__dirname + '/client/login.html');
+// });
+
 app.post('/api/login', function (req, res) {
    console.log("req.body");
    console.log(req.body);
@@ -80,11 +82,23 @@ app.get('/api/liste', function (req, res) {
 app.get('/api/eleves', function (req, res) {
    // res.json(listeEleves.listeEleves);
    Eleves.find({},function(err,eleves){
+         if(err){
+            console.log(err);
+         }else{
+            console.log(eleves);
+            res.json(eleves);
+         }
+   });
+});
+app.post('/api/eleves/:ideleve', function (req, res) {
+   // res.json(listeEleves.listeEleves);
+   var id = req.params.ideleve;
+   Eleves.findById({"_id" : id},function(err,eleves){
    		if(err){
    			console.log(err);
    		}else{
    			console.log(eleves);
-   			res.json(eleves);
+   			res.json('Ok');
    		}
    });
 });

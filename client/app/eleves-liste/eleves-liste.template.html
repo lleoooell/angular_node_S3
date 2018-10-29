@@ -1,0 +1,25 @@
+<div class="container">
+	<h1>Liste des élèves</h1>
+	<input type="text" ng-model="$ctrl.query" name="" class="form-group">
+	
+	
+
+<ul class="media-list">
+  <li class="media" ng-repeat="el in $ctrl.listeEleves | filter : $ctrl.query">
+    <a ng-href="/#!/eleves/{{el._id}}">
+    	<div class="media-left">
+      
+        <img class="media-object" src="http://placehold.it/50x50" alt="...">
+
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{el.nom}}&nbsp;{{el.prenom}}</h4>
+       {{el.before_ifa}}
+    </div>
+    </a>
+  </li>
+</ul>
+
+	<!-- <pre>{{$ctrl.listeEleves | json}}</pre> -->
+</div>
+

@@ -1,0 +1,1 @@
+angular.module("elevesDetail",['ngRoute','core.eleves']);

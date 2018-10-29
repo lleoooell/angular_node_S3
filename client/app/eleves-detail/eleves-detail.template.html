@@ -1,0 +1,11 @@
+<div>
+	<a href="/">Return</a>
+	<h3>{{$ctrl.eleve.nom}} &nbsp;{{$ctrl.eleve.prenom}}</h3>
+
+
+	<ul>
+		<li ng-repeat="(key, val) in $ctrl.eleve">
+			{{key}} : {{val}}
+		</li>
+	</ul>
+</div>
